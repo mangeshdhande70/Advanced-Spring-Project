@@ -69,7 +69,7 @@ public class RequestServiceImpl implements IRequestService {
 		}
 
 		Request request = requestRepository.save(Request.builder().requestId(UUID.randomUUID().toString())
-				.timestamp(LocalDateTime.now()).requestData(jsonRequestData).responseData(jsonResponseData).build());
+				.requestData(jsonRequestData).responseData(jsonResponseData).build());
 
 		return request.getRequestId();
 	}
@@ -113,7 +113,7 @@ public class RequestServiceImpl implements IRequestService {
 				ResponseData responseData = objectMapper.readValue(request.getResponseData(), ResponseData.class);
 				row.createCell(4).setCellValue(responseData.getStatus());
 				row.createCell(5).setCellValue(responseData.isVerified());
-				row.createCell(6).setCellValue(request.getTimestamp());
+				row.createCell(6).setCellValue(request.getTimestamp().toString());
 			}
 
 			workbook.write(out);
@@ -182,7 +182,7 @@ public class RequestServiceImpl implements IRequestService {
 				ResponseData responseData = objectMapper.readValue(request.getResponseData(), ResponseData.class);
 				row.createCell(4).setCellValue(responseData.getStatus());
 				row.createCell(5).setCellValue(responseData.isVerified());
-				row.createCell(6).setCellValue(request.getTimestamp());
+				row.createCell(6).setCellValue(request.getTimestamp().toString());
 			}
 
 			workbook.write(out);

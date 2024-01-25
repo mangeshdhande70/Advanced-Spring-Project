@@ -1,6 +1,8 @@
 package com.example.demo.entity;
 
 import java.io.Serializable;
+import java.security.Timestamp;
+import java.sql.Date;
 import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
@@ -31,11 +33,11 @@ public class Request implements Serializable {
 	@Column(name = "request_data")
 	private String requestData;
 	
-	@Column(name = "response-data")
+	@Column(name = "response_data")
 	private String responseData;
 	
 	@Column(name = "created_time")
-	private LocalDateTime timestamp;
+	private Date timestamp;
 	
 	
 	
